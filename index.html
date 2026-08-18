@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>말씀길잡이 · 설교 준비 도우미</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link rel="stylesheet" as="style" crossorigin
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="page">
+
+  <div class="grid">
+
+    <!-- 브랜드 카드 -->
+    <section class="card card-brand">
+      <div class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4 L24 24 L44 24 A20 20 0 0 0 24 4 Z" fill="var(--blue)"/>
+          <path d="M24 24 L4 24 A20 20 0 0 1 24 4 Z" fill="var(--blue-light)"/>
+          <path d="M24 24 L24 44 A20 20 0 0 1 4 24 Z" fill="var(--ink)"/>
+        </svg>
+      </div>
+      <h1>말씀길잡이</h1>
+      <p class="tagline">AI 설교 준비 도우미</p>
+    </section>
+
+    <!-- API 키 카드 -->
+    <section class="card card-key">
+      <h2>API 키</h2>
+      <p class="hint">Anthropic Console에서 발급받은 키를 입력하세요.<br/>이 브라우저에만 저장되며 외부로 전송되지 않습니다.</p>
+      <div class="key-row">
+        <input type="password" id="apiKey" placeholder="sk-ant-..." autocomplete="off" />
+        <button id="toggleKey" type="button" class="btn-ghost" title="키 표시/숨기기">👁</button>
+      </div>
+      <div class="key-actions">
+        <button id="saveKey" type="button" class="btn-primary-outline">저장</button>
+        <span id="keyStatus" class="status"></span>
+      </div>
+    </section>
+
+    <!-- 요청 입력 카드 -->
+    <section class="card card-input">
+      <h2>요청 입력</h2>
+      <textarea id="userInput" placeholder="예) 예레미야 32장 6-15절로 20분 분량 설교 개요를 잡아줘"></textarea>
+      <div class="input-actions">
+        <select id="modelSelect">
+          <option value="claude-opus-4-8" selected>Opus (정교함 우선)</option>
+          <option value="claude-sonnet-5">Sonnet (균형)</option>
+          <option value="claude-haiku-4-5-20251001">Haiku (속도 우선)</option>
+        </select>
+        <button id="sendBtn" type="button" class="btn-primary">전송</button>
+      </div>
+    </section>
+
+    <!-- 출력 카드 -->
+    <section class="card card-output">
+      <div class="output-header">
+        <h2>결과</h2>
+        <button id="copyBtn" type="button" class="btn-ghost" title="결과 복사">복사</button>
+      </div>
+      <div id="output" class="output-body">
+        <p class="placeholder">여기에 답변이 표시됩니다.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

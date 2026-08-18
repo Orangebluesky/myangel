@@ -1,0 +1,225 @@
+:root {
+  --ink: #14161a;
+  --blue: #2a4bff;
+  --blue-light: #6f8bff;
+  --blue-tint: #eef1ff;
+  --line: #14161a;
+  --muted: #6b7280;
+  --paper: #ffffff;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #f4f5f7;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  color: var(--ink);
+}
+
+.page {
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-rows: auto auto 1fr;
+  gap: 16px;
+}
+
+.card {
+  background: var(--paper);
+  border: 2.5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+}
+
+/* 브랜드 카드 */
+.card-brand {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.logo-mark { width: 34px; height: 34px; }
+.logo-mark svg { width: 100%; height: 100%; }
+.card-brand h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.tagline {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* API 키 카드 */
+.card-key {
+  grid-column: 2;
+  grid-row: 1;
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+.card-key h2 { margin: 0 0 8px; font-size: 15px; font-weight: 700; }
+.card-key .hint {
+  margin: 0 0 14px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #dbe2ff;
+}
+.key-row {
+  display: flex;
+  gap: 8px;
+}
+.key-row input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 13px;
+  font-family: inherit;
+}
+.key-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.status {
+  font-size: 12px;
+  color: #dbe2ff;
+}
+.status.ok { color: #b6ffcf; font-weight: 600; }
+
+/* 요청 입력 카드 */
+.card-input {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+}
+.card-input h2 { margin: 0 0 10px; font-size: 15px; font-weight: 700; }
+.card-input textarea {
+  flex: 1;
+  min-height: 140px;
+  resize: vertical;
+  border: 1.5px solid #d8dae0;
+  border-radius: 10px;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.input-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+#modelSelect {
+  flex: 1;
+  padding: 9px 10px;
+  border-radius: 8px;
+  border: 1.5px solid #d8dae0;
+  font-family: inherit;
+  font-size: 13px;
+  background: #fff;
+}
+
+/* 출력 카드 */
+.card-output {
+  grid-column: 2;
+  grid-row: 2 / span 2;
+  background: var(--blue-tint);
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+}
+.output-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.card-output h2 { margin: 0; font-size: 15px; font-weight: 700; }
+.output-body {
+  flex: 1;
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+.output-body .placeholder { color: var(--muted); }
+.output-body .char-count {
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px dashed #d8dae0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* 버튼 */
+.btn-primary {
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-primary:hover { background: #000; }
+.btn-primary:disabled { background: #9aa0aa; cursor: not-allowed; }
+
+.btn-primary-outline {
+  background: #fff;
+  color: var(--blue);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1.5px solid currentColor;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--muted);
+}
+.card-key .btn-ghost { color: #fff; border-color: #ffffff88; }
+
+/* 반응형: 모바일에서는 세로로 쌓기 */
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+  .card-brand, .card-key, .card-input, .card-output {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .card-output { min-height: 260px; }
+}
